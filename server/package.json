@@ -4,15 +4,17 @@
   "main": "index.js",
   "repository": "https://github.com/adrianodev97/NLW-12-ignite-spacetime.git",
   "scripts": {
-    "dev": "tsx src/server.ts"
+    "dev": "tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "Adriano Junior <adrianojunior.dev97@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^20.1.3",
+    "@types/node": "^20.1.7",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fastify": "^4.17.0"
+  }
 }
