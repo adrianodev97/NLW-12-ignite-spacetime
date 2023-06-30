@@ -1,5 +1,6 @@
 import { ImageBackground } from 'react-native'
 import { styled } from 'nativewind'
+
 import { SplashScreen, Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
 import * as SecureStore from 'expo-secure-store'
@@ -41,7 +42,7 @@ export default function Layout() {
   return (
     <ImageBackground
       source={blurBg}
-      className="relative flex-1 bg-gray-950"
+      className="relative flex-1 bg-gray-900"
       imageStyle={{ position: 'absolute', left: '-100%' }}
     >
       <StyledStripes className="absolute left-2" />
@@ -50,9 +51,8 @@ export default function Layout() {
       <Stack
         screenOptions={{
           headerShown: false,
-          contentStyle: {
-            backgroundColor: 'transparent',
-          },
+          contentStyle: { backgroundColor: 'transparent' },
+          animation: 'fade',
         }}
       >
         <Stack.Screen name="index" redirect={isUserAuthenticated} />
