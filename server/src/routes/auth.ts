@@ -5,11 +5,11 @@ import { prisma } from '../lib/prisma'
 
 export async function authRoutes(app: FastifyInstance) {
   app.post('/register', async (request) => {
-    const bodyScheme = z.object({
+    const bodySchema = z.object({
       code: z.string(),
     })
 
-    const { code } = bodyScheme.parse(request.body)
+    const { code } = bodySchema.parse(request.body)
 
     const accessTokenResponse = await axios.post(
       'https://github.com/login/oauth/access_token',
@@ -34,14 +34,14 @@ export async function authRoutes(app: FastifyInstance) {
       },
     })
 
-    const userScheme = z.object({
+    const userSchema = z.object({
       id: z.number(),
       login: z.string(),
       name: z.string(),
       avatar_url: z.string().url(),
     })
 
-    const userInfo = userScheme.parse(userResponse.data)
+    const userInfo = userSchema.parse(userResponse.data)
 
     let user = await prisma.user.findUnique({
       where: {

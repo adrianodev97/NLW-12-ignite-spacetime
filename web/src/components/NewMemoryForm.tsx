@@ -1,11 +1,11 @@
-'use-client'
+'use client'
 
 import { api } from '@/lib/api'
 import { Camera } from 'lucide-react'
 import { FormEvent } from 'react'
 import Cookie from 'js-cookie'
 import { MediaPicker } from './MediaPicker'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 export const NewMemoryForm = () => {
   const router = useRouter()
@@ -17,7 +17,7 @@ export const NewMemoryForm = () => {
 
     const fileToUpload = formData.get('coverUrl')
 
-    let coverUrl
+    let coverUrl = ''
 
     if (fileToUpload) {
       const uploadFormData = new FormData()
@@ -79,13 +79,13 @@ export const NewMemoryForm = () => {
       <textarea
         name="content"
         spellCheck={false}
-        className="roudend w-full flex-1 resize-none border-0 bg-transparent p-0 text-lg leading-relaxed text-gray-100 placeholder:text-gray-400 focus:ring-0"
+        className="w-full flex-1 resize-none rounded border-0 bg-transparent p-0 text-lg leading-relaxed text-gray-100 placeholder:text-gray-400 focus:ring-0"
         placeholder="Fique livre para adicionar fotos, vídeos e relatos sobre essa experiência que você quer lembrar para sempre."
-      ></textarea>
+      />
 
       <button
         type="submit"
-        className="inline-block self-end rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-black hover:bg-green-300"
+        className="inline-block self-end rounded-full bg-green-500 px-5 py-3 font-alt text-sm uppercase leading-none text-black hover:bg-green-600"
       >
         Salvar
       </button>
